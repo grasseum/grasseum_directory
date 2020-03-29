@@ -21,7 +21,7 @@ exports.retrieveFileInDirectorySrc = function(list_dir,orig_path,func){
 
                local_list_dir.push(list_dir[i]['dir']);
             }
-
+           
             for(var ldi in local_list_dir){
                      file_system_identifier_src(local_list_dir[ldi],orig_path,function(file){
 

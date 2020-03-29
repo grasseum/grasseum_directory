@@ -17,7 +17,7 @@ clsFileSystem.prototype.action_callback = function(files,func,is_callback) {
        
         fs.lstat(files, function(err, stats){
               
-              
+               
                 if (err == null){
                     //return false
                 
