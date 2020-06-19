@@ -23,3 +23,23 @@ exports.read_file_ut8= function(src,func){
         
     });
 }
+exports.readStream= function(src,func){
+    
+    try{
+        var list_content = [];
+        var data_readstream = fs.createReadStream(src);
+                    
+        data_readstream.on('data', function (chunk) {
+            list_content.push(chunk);
+            func({"per_line_data":chunk});
+        });
+        data_readstream.on("end",function(){
+
+            func({"complete_data":list_content.join().toString()});
+        })
+    }
+    catch(e){
+        func({"error":e});
+    }
+    
+}

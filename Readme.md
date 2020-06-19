@@ -1,1 +1,1 @@
-# Grasseum core
+# Grasseum directory

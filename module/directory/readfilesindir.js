@@ -3,7 +3,7 @@ const path = require("path");
 var compt = require("compts");
 var validation =require("grasseum_directory/util/validation")
 function srcDir(path_var,func){
-    //if(/\*/g.test(path_var)){
+   
 
     if(process.platform == "win32"){
         this.reg_split = "\\"
@@ -13,8 +13,8 @@ function srcDir(path_var,func){
     }
     this.loc_path =validation.cleanDirPath(path_var);
     this.loc_path_split =validation.cleanDirPath(path_var).split("/");
-  //    console.log(this.loc_path,":loc_path")
-
+  
+  
     this.func = func;
 
     this.srcDirInit()
@@ -29,14 +29,14 @@ srcDir.prototype.srcDirInit = function(){
                 var let_data = [];
                 var main = this;
                 this.loc_path_split.forEach(function(v,k){
-                  //  console.log(v,k,"V")
+                   
 
                     if(/\*/g.test( v ) == false){
 
                         let_data.push(v)
                     }
                 })
-                //console.log(let_data.join(this.reg_split),"let_data")
+             
                 if(let_data.length ==0){
                     this.srcDirFile( "." )
                 }else{
@@ -129,18 +129,20 @@ srcDir.prototype.srcDirFile = function(paths){
                 
                 
         if (err == null){
-            //return false
+            
         
         if(stats.isFile()){
            
           let raw_basename = validation.cleanPathname(path.basename(paths))
-          if(main.validateFile( paths ) && compt._.indexOf(["Grassfile.js","Grassapi.js"],raw_basename ) ==-1){
+          if(main.validateFile( paths ) && compt._.indexOf(["grassfile.js","grasshttp.js"],raw_basename ) ==-1){
           
             main.func({"path":validation.cleanPathname(paths),
                         "type":"file",
+                        "stat":stats,
                         "filename": raw_basename,
                         "directory":validation.cleanPathname(path.dirname(paths))
-                        })
+                        });
+                   
           }
             
         }
@@ -160,7 +162,7 @@ srcDir.prototype.srcDirFile = function(paths){
                     
                     })
                 }else{
-                    console.log("error 2s",errs)
+                    console.log("error",errs)
                 }
             })
         }
