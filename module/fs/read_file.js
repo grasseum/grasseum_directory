@@ -31,7 +31,7 @@ exports.readStream= function(src,func){
                     
         data_readstream.on('data', function (chunk) {
             list_content.push(chunk);
-            func({"per_line_data":chunk});
+            func({"per_line_data":chunk.toString()});
         });
         data_readstream.on("end",function(){
 
