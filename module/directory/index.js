@@ -1,17 +1,8 @@
-var module_src_index =require("grasseum_directory/module/directory/readfilesindir")
-var validation = require("grasseum_directory/util/validation");
+var validation = require("grasseum_glob/util/validation");
 var compt = require("compts");
 var fs = require('fs');
 var path = require('path');
-exports.readFileInDir = function(data,func){
-    if(compt._.has(data)){
-        data.forEach(function(v){
-            module_src_index(v,func)
-        });
-    }
-   
 
-}
 exports.createFolder = function(location,succfunc,errorfunc){
     if (!fs.existsSync(location)){
         try{
