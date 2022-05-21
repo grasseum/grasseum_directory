@@ -4,12 +4,14 @@
   "description": "Grasseum directory library",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "es_linter": "eslint module/*/*.js  *.js --fix"
   },
   "keywords": [
     "Grasseum"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "path-assist": "^0.1.1"
+  },
   "author": "Pein Freccs",
   "license": "MIT",
   "repository": {
